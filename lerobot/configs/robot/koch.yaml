@@ -11,7 +11,7 @@ leader_arms:
   main:
     _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
     # port: /dev/tty.usbmodem575E0031751
-    port: /dev/ttyACM1
+    port: /dev/ttyACM5
     motors:
       # name: (index, model)
       shoulder_pan: [1, "xl330-m077"]
@@ -25,7 +25,7 @@ follower_arms:
   main:
     _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
     # port: /dev/tty.usbmodem575E0032081
-    port: /dev/ttyACM0
+    port: /dev/ttyACM2
     motors:
       # name: (index, model)
       shoulder_pan: [1, "xl430-w250"]
