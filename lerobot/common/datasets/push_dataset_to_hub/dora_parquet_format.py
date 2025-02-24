@@ -26,8 +26,8 @@ import torch
 from datasets import Dataset, Features, Image, Sequence, Value
 
 from lerobot.common.datasets.lerobot_dataset import CODEBASE_VERSION
+from lerobot.common.datasets.push_dataset_to_hub.utils import calculate_episode_data_index
 from lerobot.common.datasets.utils import (
-    calculate_episode_data_index,
     hf_transform_to_torch,
 )
 from lerobot.common.datasets.video_utils import VideoFrame
@@ -72,7 +72,7 @@ def load_from_raw(raw_dir: Path, videos_dir: Path, fps: int, video: bool, episod
             # However, note that "nearest" might synchronize the reference camera with other cameras on slightly future timestamps.
             # are too far appart.
             direction="nearest",
-            tolerance=pd.Timedelta(f"{1/fps} seconds"),
+            tolerance=pd.Timedelta(f"{1 / fps} seconds"),
         )
     # Remove rows with episode_index -1 which indicates data that correspond to in-between episodes
     df = df[df["episode_index"] != -1]
